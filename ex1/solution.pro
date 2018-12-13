@@ -9,16 +9,15 @@ print, "---"
 
 ; Q2
 print, "Visualizing with contour for question 2"
-; TODO on axes range
 window,0,title="Question 2"
 s = size(data)
 start_x = 100.0
 end_x = s[2] * 0.04 + start_x
 start_y = -600.0
 end_y = s[1] * 0.04 + start_y
-xvalues = [start_x, end_x]
-yvalues = [start_y, end_y]
-contour, data, xtitle='x (arcsec)', ytitle='y (arcsec)', xtickv=xvalues, ytickv=yvalues
+xvalues = findgen(abs(abs(end_x)-abs(start_x))) * 10 + start_x
+yvalues = findgen(abs(abs(end_y)-abs(start_y))) * 10 + start_y
+contour, data, xtitle='x (arcsec)', ytitle='y (arcsec)', xtickname= xvalues, ytickname=yvalues
 print, "---"
 
 ; Q3
@@ -62,13 +61,8 @@ lower_limit = 0
 upper_limit = 0.02
 dt = 1
 f = fft_powerSpectrum(q5, dt, freq=freq)
-print,f
-print, "asdasdasd"
-print, freq
 window,2,title="Question 6"
 indexes = where(freq[where((freq le upper_limit))] ge lower_limit)
-print, indexes
-print, freq[indexes]
 plot, freq[indexes], f[indexes], xrange=[lower_limit, upper_limit]
 print, "---"
 
