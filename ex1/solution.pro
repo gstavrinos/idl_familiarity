@@ -57,7 +57,7 @@ xx = findgen(size(q5,/n_elements))
 r = linfit(xx, q5)
 window,1,title="Question 5"
 plot,xx,q5
-oplot,xx,r(0)+r(1)*xx
+oplot,xx,r(0)+r(1)*xx, color=119
 print, "---"
 
 ; Q6
