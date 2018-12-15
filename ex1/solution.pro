@@ -11,13 +11,19 @@ print, "---"
 print, "Visualizing with contour for question 2"
 window,0,title="Question 2"
 s = size(data)
-start_x = 100.0
-end_x = s[2] * 0.04 + start_x
-start_y = -600.0
-end_y = s[1] * 0.04 + start_y
-xvalues = findgen(abs(abs(end_x)-abs(start_x))) * 10 + start_x
-yvalues = findgen(abs(abs(end_y)-abs(start_y))) * 10 + start_y
-contour, data, xtitle='x (arcsec)', ytitle='y (arcsec)', xtickname= xvalues, ytickname=yvalues
+sunR = 695508 ; km
+step = 40.0 ; km
+arc_step = step / sunR * 3600 ; arcsec
+start_x = 100.0 ; arcsec
+end_x = (s[2]-1) * arc_step + start_x ; arcsec
+start_y = -600.0 ; arcsec
+end_y = (s[1]-1) * arc_step + start_y ; arcsec
+ticks = 7
+axis_step_x = abs(abs(end_x)-abs(start_x)) / ticks
+axis_step_y = abs(abs(end_y)-abs(start_y)) / ticks
+xvalues = findgen(ticks) * axis_step_x + start_x
+yvalues = findgen(ticks) * axis_step_y + start_y
+contour, data, xtitle='x (arcsec)', ytitle='y (arcsec)', xtickname=xvalues, ytickname=yvalues, xticks=ticks-1, yticks=ticks-1
 print, "---"
 
 ; Q3
@@ -55,7 +61,6 @@ oplot,xx,r(0)+r(1)*xx
 print, "---"
 
 ; Q6
-; TODO check this again, because I get only 4 values in the end
 print, "Calculating fourier transform and vizualizing for question 6"
 lower_limit = 0
 upper_limit = 0.02
