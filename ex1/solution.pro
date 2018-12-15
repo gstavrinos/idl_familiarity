@@ -28,7 +28,7 @@ print, "---"
 
 ; Q3
 print, "Saving contour as q3.jpg for question 3"
-;write_jpeg, "q3.jpg", tvrd()
+write_jpeg, "q3.jpg", tvrd()
 print, "---"
 
 ; Q4
