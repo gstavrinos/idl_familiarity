@@ -16,7 +16,7 @@ for i=0,size(files,/n_elements)-1 do begin
     print,"---"
 
     ; Q2
-    print, "Visualizing x axis of the magnetic field of day " + string(i+1) + " relatively to time for question 2"
+    print, "Visualizing x axis of the magnetic field of day " + string(i+1) + " relative to time for question 2"
     dio_time = findgen(n_elements(xdio)) * dio_sampling_rate / 3600
     thl_time = findgen(n_elements(xthl)) * thl_sampling_rate / 3600
 
