@@ -25,7 +25,7 @@ if file_test(sav_filename) then begin
     axis_step_y = abs(abs(end_y)-abs(start_y)) / ticks
     xvalues = findgen(ticks) * axis_step_x + start_x
     yvalues = findgen(ticks) * axis_step_y + start_y
-    contour, data, xtitle='x (arcsec)', ytitle='y (arcsec)', xtickname=xvalues, ytickname=yvalues, xticks=ticks-1, yticks=ticks-1
+    contour, data, xtitle="x (arcsec)", ytitle="y (arcsec)", xtickname=xvalues, ytickname=yvalues, xticks=ticks-1, yticks=ticks-1
     print, "---"
 
     ; Q3
